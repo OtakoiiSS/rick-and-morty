@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
 
+import Service from './services/get-service'
+import { useEffect, useState } from 'react';
+import CharactersList from './components/common/CharactersList';
+
 function App() {
+  const [data, setData] = useState()
+  
+  useEffect(() => {
+    Service.getAllCharacter()
+      .then(res => setData(res.data.results))
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {data && <CharactersList data={data}/>}
     </div>
   );
 }
