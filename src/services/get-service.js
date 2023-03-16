@@ -1,9 +1,10 @@
 import axios from 'axios';
 
 export default class Service {
-    static getAllCharacter = () => {
+    static getCharacter = (id = "") => {
+        
         return (
-            axios.get('https://rickandmortyapi.com/api/character')
+            axios.get(`https://rickandmortyapi.com/api/character${id}`)
         )
     }
 }

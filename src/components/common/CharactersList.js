@@ -1,4 +1,5 @@
 import Characters from "./Characters";
+import { v4 as uuid } from 'uuid'
 
 function CharactersList({data}) {
     const copy = [...data].sort((a, b) => a.name.localeCompare(b.name))
@@ -8,7 +9,7 @@ function CharactersList({data}) {
     return (
         <div className="list">
             {copy.map(data => (
-                <Characters data={data} key={data.id}/>
+                <Characters data={data} key={uuid()} />
             ))}
         </div>
     )
