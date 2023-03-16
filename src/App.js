@@ -6,9 +6,9 @@ import CharactersList from './components/common/CharactersList';
 
 function App() {
   const [data, setData] = useState()
-  
+
   useEffect(() => {
-    Service.getAllCharacter()
+    Service.getCharacter()
       .then(res => setData(res.data.results))
   }, []);
 
