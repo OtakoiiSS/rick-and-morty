@@ -9,12 +9,12 @@ import CharactersItem from './components/profile/CharacterItem';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<App />}/>
-        <Route path='/:userId' element={<CharactersItem />}/>
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<App />}/>
+          <Route path='/:userId' element={<CharactersItem />}/>
+        </Routes>
+      </BrowserRouter>
   </React.StrictMode>
 );
 
