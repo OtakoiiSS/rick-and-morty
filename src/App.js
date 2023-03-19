@@ -9,14 +9,18 @@ function App() {
   const [data, setData] = useState()
 
   useEffect(() => {
-    Service.getCharacter()
-      .then(res => res.data.results.sort((a, b) => a.name.localeCompare(b.name)))
+    Service.getAllCharacter()
+      .then(res => res.sort((a, b) => a.name.localeCompare(b.name)))
+      .then(data => data.filter((item, index, arr) => {
+        return arr.findIndex(el => el.name === item.name) === index;
+      }))
       .then(sorted => setData(sorted))
   }, []);
 
   return (
     <div>
       {data && <CharactersList data={data}/>}
+      <MyComponent />
     </div>
   );
 }
