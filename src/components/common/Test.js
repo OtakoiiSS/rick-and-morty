@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import Service from '../../services/get-service';
 
 function MyComponent() {
   const [inputValue, setInputValue] = useState('');
   const [items, setItems] = useState([]);
+
+  Service.getAllCharacter()
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);

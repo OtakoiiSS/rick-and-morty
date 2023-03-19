@@ -11,15 +11,19 @@ function CharactersList({data}) {
     }
 
     useEffect(() => {
+        setInputValue(localStorage.getItem('CHARACTERS_INPUT'))
+    }, [])
+
+    useEffect(() => {
         setCharactersList(filterArray(inputValue));
 
         console.log(inputValue)
     }, [inputValue])
     
     const handleInputChange = (event) => {
-        localStorage.setItem('characters_input', event.target.value)
+        localStorage.setItem('CHARACTERS_INPUT', event.target.value)
         
-        setInputValue(localStorage.getItem('characters_input'));
+        setInputValue(localStorage.getItem('CHARACTERS_INPUT'));
     };
     // const filtered = sortedArr.filter(el => (
     //     el.name.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1))
