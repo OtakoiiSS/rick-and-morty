@@ -1,5 +1,5 @@
 import './Characters.css'
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Characters({data}) {
@@ -13,7 +13,7 @@ function Characters({data}) {
         setName(data.name);
         setSpecies(data.species);
         setUrl(data.image)
-    }, [])
+    }, [data.name, data.species, data.image])
 
     const navigateOnClick = () => {
         navigate(`/${data.id}`)
@@ -22,14 +22,14 @@ function Characters({data}) {
     return (
         <div className="characters" onClick={navigateOnClick}>
             <div className="image-block">
-                <img src={imgUrl}></img>
+                <img src={imgUrl} alt={name}></img>
             </div>
             <div className="data-block">
-                <a>{name}</a>
-                <a>{species}</a>
+                <p>{name}</p>
+                <p>{species}</p>
             </div>
         </div>
     )
 }
 
-export default Characters;
+export default memo(Characters);

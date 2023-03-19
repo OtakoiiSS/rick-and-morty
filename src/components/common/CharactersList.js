@@ -1,16 +1,45 @@
 import Characters from "./Characters";
 import { v4 as uuid } from 'uuid'
+import { useEffect, useState } from "react";
 
 function CharactersList({data}) {
-    const copy = [...data].sort((a, b) => a.name.localeCompare(b.name))
+    const [charactersList, setCharactersList] = useState(data)
+    const [inputValue, setInputValue] = useState('');
 
-    console.log(copy)
+    const filterArray = (input) => {
+        return data.filter((item) => item.name.toLowerCase().includes(input.toLowerCase()))
+    }
+
+    useEffect(() => {
+        setCharactersList(filterArray(inputValue));
+
+        console.log(inputValue)
+    }, [inputValue])
+    
+    const handleInputChange = (event) => {
+        localStorage.setItem('characters_input', event.target.value)
+        
+        setInputValue(localStorage.getItem('characters_input'));
+    };
+    // const filtered = sortedArr.filter(el => (
+    //     el.name.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1))
 
     return (
         <div className="list">
-            {copy.map(data => (
-                <Characters data={data} key={uuid()} />
-            ))}
+            <div>
+                <img />
+                <label>Search</label>
+                <input value={inputValue} onChange={handleInputChange}></input>
+            </div>
+            <div>
+            <ul>
+                {charactersList.map(data => (
+                    <li key={uuid()}>
+                        <Characters data={data} />
+                    </li>
+                ))}
+                </ul>
+            </div>
         </div>
     )
 }

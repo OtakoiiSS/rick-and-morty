@@ -19,7 +19,7 @@ function CharactersItem() {
     useEffect(() => {
         Service.getCharacter(`/${params.userId}`)
             .then(res => setData(res.data))
-    }, [])
+    }, [params.userId])
 
     const {name, gender, status, species, origin, type, image} = data;
 
