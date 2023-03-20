@@ -14,12 +14,20 @@
 .button button {
     border: none;
     background-color: white;
+    border-radius: 10px;
 
     font-family: 'Karla';
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 21px;
+
+    transition: 0.3s
+}
+
+.button button:hover {
+    color: #97ce4c;
+    
 }
 
 .button svg {
@@ -61,6 +69,7 @@
 
 .info {
     margin-left: 20px;
+    margin-bottom: 142px;
 }
   
 .info ul {
