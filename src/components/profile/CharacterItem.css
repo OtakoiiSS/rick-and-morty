@@ -1,0 +1,125 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    position: absolute;
+    left: 54px;
+    top: 23px;
+}
+
+.button button {
+    border: none;
+    background-color: white;
+
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.button svg {
+    position: relative;
+    top: 3px;
+    margin-right: 4px;
+}
+  
+.image {
+    text-align: center;
+    margin-top: 54px;
+    margin-bottom: 16px;
+}
+  
+.image img {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    position: relative;
+}
+  
+.image h1 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 56px;
+    align-items: center;
+}
+
+.image h2 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #8E8E93;
+}
+
+.info {
+    margin-left: 20px;
+}
+  
+.info ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.info ul li {
+    border-bottom: 1px solid;
+    width: 413px;
+    border-color: #6E798C;
+}
+  
+.info ul li div p:first-child {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #081F32;
+    letter-spacing: 0.15px;
+    margin-bottom: -15px;
+}
+
+.info ul li div p:last-child{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #6E798C;
+    letter-spacing: 0.25px;
+    margin-bottom: px;
+}
+
+@media (max-width: 451px) {
+    .button {
+        left: 28px;
+    }
+
+    .image {
+        margin-top: 124px;
+        margin-bottom: 34px;
+    }
+
+    .image h1 {
+        font-size: 32px;
+    }
+
+    .image h2 {
+        position: absolute;
+        left: 20px;
+    }
+
+    .info ul li {
+        width: 312px;
+    }
+}
+  

@@ -1,22 +1,23 @@
-import './Characters.css'
+import './Characters.css';
+
 import { memo, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Characters({data}) {
     const [name, setName] = useState("Nobody");
     const [species, setSpecies] = useState("Human");
-    const [imgUrl, setUrl] = useState('')
+    const [imgUrl, setUrl] = useState('');
     
     const navigate = useNavigate();
 
     useEffect(() => {
         setName(data.name);
         setSpecies(data.species);
-        setUrl(data.image)
-    }, [data.name, data.species, data.image])
+        setUrl(data.image);
+    }, [data.name, data.species, data.image]);
 
     const navigateOnClick = () => {
-        navigate(`/${data.id}`)
+        navigate(`/${data.id}`);
     }
 
     return (
