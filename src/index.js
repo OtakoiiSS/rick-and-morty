@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<App />}/>
+          <Route path='/rick-and-morty' element={<App />}/>
           <Route path='/:userId' element={<CharactersItem />}/>
         </Routes>
       </BrowserRouter>
