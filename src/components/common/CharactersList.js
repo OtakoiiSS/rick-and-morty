@@ -9,7 +9,9 @@ function CharactersList({data}) {
     const [inputValue, setInputValue] = useState('');
 
     const filterArray = (input) => {
-        return data.filter((item) => item.name.toLowerCase().includes(input.toLowerCase()));
+        if(data) {
+            return data.filter((item) => item.name.toLowerCase().includes(input.toLowerCase()));
+        }
     }
 
     useEffect(() => {
