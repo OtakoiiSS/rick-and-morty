@@ -8,19 +8,16 @@ function CharactersList({data}) {
     const [charactersList, setCharactersList] = useState(data);
     const [inputValue, setInputValue] = useState('');
 
-    console.log(data)
-    console.log(inputValue)
-    console.log(charactersList)
-    console.log(localStorage.getItem('CHARACTERS_INPUT'))
-
     const filterArray = (input) => {
-        if(data) {
             return data.filter((item) => item.name.toLowerCase().includes(input.toLowerCase()));
-        }
     }
 
     useEffect(() => {
-        setInputValue(localStorage.getItem('CHARACTERS_INPUT'));
+        if(localStorage.getItem('CHARACTERS_INPUT') !== null) {
+            setInputValue(localStorage.getItem('CHARACTERS_INPUT'));
+        } else {
+            setInputValue('')
+        }
     }, []);
 
     useEffect(() => {
